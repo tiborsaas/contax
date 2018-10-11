@@ -9,10 +9,30 @@ body {
     background: #F4F2F5;
 }
 
+a {
+    color: #7641AD;
+}
+
+a.danger {
+    color: tomato;
+}
+
+button {
+    background: #63D97A;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 6px;
+}
+
+button:hover {
+    cursor: pointer;
+    background: rgb(115, 255, 143);
+}
+
 header {
     color: #fff;
     background: #352646;
-    padding: 2rem 10rem;
+    padding: 2rem 2.5rem;
 }
 
 header article {
@@ -41,20 +61,177 @@ header article input {
     width: 17rem;
 }
 
-header button {
-    background: #63D97A;
-    border: none;
-    padding: .5rem 1rem;
-    border-radius: 6px;
-}
 
 /**
  * Main contact list
  */
-
 main {
     margin: auto;
     max-width: 75rem;
     background: #fff;
+    display: flex;
+    box-shadow: 0 .5rem 2rem rgba(0,0,0,0.03);
 }
 
+main article {
+    flex: 1 1 30%;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-right: 1px solid #E5E9F2;
+}
+
+main aside {
+    flex: 1 1 70%;
+}
+
+main article ul li {
+    margin: 0;
+    padding: 1rem 1.5rem;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+main article ul li.active {
+    background-color: #7641AD;
+    color: #fff;
+    border-radius: 6px 0 0 6px;
+}
+
+main .contact-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+main .contact-details h1 {
+    border-bottom: 1px solid #E5E9F2;
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+}
+
+main .contact-details p {
+    margin-bottom: 1rem;
+}
+
+main .contact-details p span {
+    color: #A8A7A7;
+    margin-right: .75rem;
+}
+
+main .contact-details .danger {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    cursor: pointer;
+}
+
+main .contact-details .edit-contact {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+}
+
+
+/**
+ * Create / Edit overlay
+ */
+section.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(200,200,200,.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(0, -100%);
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+section.overlay.show {
+    opacity: 1;
+    transform: none;
+}
+
+section.overlay.edit h1.edit {
+    display: block;
+}
+
+section.overlay.edit h1.create {
+    display: none;
+}
+
+section.overlay.create h1.edit {
+    display: none;
+}
+
+section.overlay.create h1.create {
+    display: block;
+}
+
+section.overlay article {
+    max-width: 27rem;
+    background: #fff;
+    padding: 2rem;
+    box-shadow: 0 .5rem 2rem rgba(0,0,0,0.05);
+    position: relative;
+}
+
+section.overlay article h1 {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #E5E9F2;
+    font-weight: 300;
+    font-size: 2rem;
+    padding-bottom: .5rem;
+}
+
+section.overlay article .close {
+    padding: .25rem .7rem;
+    right: -1rem;
+    top: -1rem;
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    color: #A8A7A7;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+section.overlay article .close:hover {
+    background: tomato;
+    cursor: pointer;
+    color: #fff;
+}
+
+section.overlay article h1 {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #E5E9F2;
+    font-weight: 300;
+    font-size: 2rem;
+    padding-bottom: .5rem;
+}
+
+section.overlay article input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border-radius: 6px;
+    border: 1px solid #E5E9F2;
+}
+
+section.overlay article label {
+    color: rgb(121, 121, 121);
+    margin-bottom: .5rem;
+    display: inline-block;
+}
+
+section.overlay article button {
+    float: right;
+}

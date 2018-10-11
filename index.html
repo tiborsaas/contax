@@ -33,10 +33,31 @@
         </article>
         <aside class="contact-details">
             <h1>Arlina Eby</h1>
-            <p><span>Email</span><a href="mailto:arlina@gmail.com">"arlina@gmail.com</a></p>
-            <p><span>Mobile</span><a href="tel:+86 (535) 778-8058">"+86 (535) 778-8058</a></p>
-            <p><span>Date created</span>2018-01-14</p>
+            <p><span>Email:</span><a href="mailto:arlina@gmail.com">arlina@gmail.com</a></p>
+            <p><span>Mobile:</span><a href="tel:+86 (535) 778-8058">+86 (535) 778-8058</a></p>
+            <p><span>Date created:</span>2018-01-14</p>
+            <a class="danger delete-contact">remove contact</a>
+            <button class="edit-contact">Edit</button>
         </aside>
     </main>
+
+    <section class="overlay _show edit">
+        <article>
+            <h1 class="create">Create new contact</h1>
+            <h1 class="edit">Edit contact</h1>
+            <span class="close">×</span>
+            <form>
+                <label for="">Name</label>
+                <input type="text">
+
+                <label for="">Email</label>
+                <input type="text">
+
+                <label for="">Mobile phone</label>
+                <input type="text">
+                <button type="submit">Save contact</button>
+            </form>
+        </article>
+    </section>
 </body>
 </html>
