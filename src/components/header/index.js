@@ -6,7 +6,7 @@ class Header extends Component {
             <header>
                 <article>
                     <h1>Contax</h1>
-                    <button class="create-contact">Add new contact</button>
+                    <button className="create-contact">Add new contact</button>
                 </article>
             </header>
         );

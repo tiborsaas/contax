@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import  from './';
+import ContactDetails from './index';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(< />, div);
+  ReactDOM.render(<ContactDetails />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -7,7 +7,7 @@ class ContactList extends Component {
                 <li>Sigfried Toner</li>
                 <li>Gayla Grunson</li>
                 <li>Olivier Vermer</li>
-                <li class="active">Arlina Eby</li>
+                <li className="active">Arlina Eby</li>
                 <li>Virge Nicholas</li>
                 <li>Bondie Beckles</li>
                 <li>Brina Milch</li>

@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 class Dialog extends Component {
     render() {
         return (
-            <section class="overlay show edit">
+            <section className="overlay show edit">
                 <article>
-                    <h1 class="create">Create new contact</h1>
-                    <h1 class="edit">Edit contact</h1>
-                    <span class="close">×</span>
+                    <h1 className="create">Create new contact</h1>
+                    <h1 className="edit">Edit contact</h1>
+                    <span className="close">×</span>
                     <form>
-                        <label for="">Name</label>
+                        <label htmlFor="">Name</label>
                         <input type="text" />
 
-                        <label for="">Email</label>
+                        <label htmlFor="">Email</label>
                         <input type="text" />
 
-                        <label for="">Mobile phone</label>
+                        <label htmlFor="">Mobile phone</label>
                         <input type="text" />
                         <button type="submit">Save contact</button>
                     </form>

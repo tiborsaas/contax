@@ -7,7 +7,7 @@ class Layout extends Component {
     render() {
         return (
             <main>
-                <article class="contact-list">
+                <article className="contact-list">
                     <input type="text" placeholder="Search by name or number" />
                     <ContactList />
                 </article>
