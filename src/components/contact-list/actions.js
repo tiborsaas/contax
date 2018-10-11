@@ -11,3 +11,8 @@ export function fetchContacts() {
             .then(json => dispatch(updateContacts(json)))
     }
 }
+
+export const selectContact = id => ({
+    type: 'CONTACT_SELECTED',
+    payload: id
+});

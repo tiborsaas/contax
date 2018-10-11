@@ -10,6 +10,12 @@ const contactList = (state = stateDefaults, action) => {
                 ...state,
                 contacts: action.payload
             };
+
+        case 'CONTACT_SELECTED':
+            return {
+                ...state,
+                selected: action.payload
+            };
         default:
             return state;
     }
