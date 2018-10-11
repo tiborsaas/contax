@@ -5,6 +5,18 @@
     font-family: 'Work Sans', sans-serif;
 }
 
+::-webkit-scrollbar {
+    background: rgb(238, 240, 245);
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bbb;
+    height: 8px;
+    width: 8px;
+}
+
 body {
     background: #F4F2F5;
 }
@@ -52,14 +64,6 @@ header article h1 {
     font-weight: 300;
 }
 
-header article input {
-    border: 1px solid #E5E9F2;
-    font-size: .8rem;
-    padding: 0 1rem;
-    border-radius: 6px;
-    background: #fff;
-    width: 17rem;
-}
 
 
 /**
@@ -79,12 +83,28 @@ main article {
     padding-left: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    border-right: 1px solid #E5E9F2;
-    overflow-y: scroll;
+    overflow: hidden;
+}
+
+main article input {
+    width: 100%;
+    padding: .5rem 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    font-size: .8rem;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid rgb(182, 185, 194);
 }
 
 main aside {
     flex: 1 1 70%;
+}
+
+main article ul {
+    overflow-y: scroll;
+    height: calc( 100% - 4rem );
+    border-right: 1px solid #E5E9F2;
 }
 
 main article ul li {
