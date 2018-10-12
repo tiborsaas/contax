@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { showEditDialog } from './actions';
+import { search } from '../search/actions';
 
 class ContactDetails extends Component {
 
@@ -35,7 +36,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        showEditDialog
+        showEditDialog,
+        search
     }, dispatch)
 };
 

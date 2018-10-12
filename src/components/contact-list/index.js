@@ -13,10 +13,17 @@ class ContactList extends Component {
         return key === this.props.selected ? 'active' : '';
     }
 
+    filterResults(contacts, search_term) {
+        return contacts.filter(contact => {
+            const fullname = (contact.first_name + ' ' + contact.last_name).toLocaleLowerCase();
+            return fullname.indexOf(search_term.toLocaleLowerCase()) !== -1
+        });
+    }
+
     render() {
         return (
             <ul>
-                {this.props.contacts.map((contact, key) =>
+                {this.filterResults(this.props.contacts, this.props.search_term).map((contact, key) =>
                     <li key={key} onClick={this.props.selectContact.bind(this, key)} className={this.isActive(key)}>
                         {contact.first_name} {contact.last_name}
                     </li>
@@ -28,7 +35,8 @@ class ContactList extends Component {
 
 const mapStateToProps = state => ({
     contacts: state.ContactReducer.contacts,
-    selected: state.ContactReducer.selected
+    selected: state.ContactReducer.selected,
+    search_term: state.ContactReducer.search_term,
 });
 
 const mapDispatchToProps = dispatch => {

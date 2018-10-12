@@ -1,6 +1,7 @@
 const stateDefaults = {
     contacts: [],
-    selected: 0
+    selected: 0,
+    search_term: ''
 };
 
 const contactList = (state = stateDefaults, action) => {
@@ -16,9 +17,15 @@ const contactList = (state = stateDefaults, action) => {
                 ...state,
                 selected: action.payload
             };
+
+        case 'SEARCH_CONTACT':
+            return {
+                ...state,
+                search_term: action.payload
+            };
         default:
             return state;
     }
 }
 
-export default contactList
+export default contactList;
