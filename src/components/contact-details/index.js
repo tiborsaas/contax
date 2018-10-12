@@ -19,8 +19,8 @@ class ContactDetails extends Component {
         return (
             <aside className="contact-details">
                 <h1>{`${this.getContactDetail('first_name')} ${this.getContactDetail('last_name')}`}</h1>
-                <p><span>Email:</span><a href="mailto:arlina@gmail.com">{this.getContactDetail('email')}</a></p>
-                <p><span>Mobile:</span><a href="tel:+86 (535) 778-8058">{this.getContactDetail('phone_number')}</a></p>
+                <p><span>Email:</span><a href={'mailto:' + this.getContactDetail('email')}>{this.getContactDetail('email')}</a></p>
+                <p><span>Mobile:</span><a href={'tel:' + this.getContactDetail('phone_number')}>{this.getContactDetail('phone_number')}</a></p>
                 <p><span>Date created:</span>{this.getContactDetail('date_created')}</p>
                 <a href="/" className="danger delete-contact">remove contact</a>
                 <button className="edit-contact" onClick={this.props.showEditDialog}>Edit</button>
