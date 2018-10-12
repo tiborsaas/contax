@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { showEditDialog } from './actions';
 
 class ContactDetails extends Component {
 
     getContactDetail(prop) {
         const index = this.props.selected;
         const contact = this.props.contacts[index];
-        if( !contact ) {
+        if (!contact) {
             return '';
         }
         return contact[prop];
@@ -21,7 +22,7 @@ class ContactDetails extends Component {
                 <p><span>Mobile:</span><a href="tel:+86 (535) 778-8058">{this.getContactDetail('phone_number')}</a></p>
                 <p><span>Date created:</span>{this.getContactDetail('date_created')}</p>
                 <a href="/" className="danger delete-contact">remove contact</a>
-                <button className="edit-contact">Edit</button>
+                <button className="edit-contact" onClick={this.props.showEditDialog}>Edit</button>
             </aside>
         );
     }
@@ -34,12 +35,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        // fetchContacts,
-        // selectContact
+        showEditDialog
     }, dispatch)
 };
 
 export default connect(
     mapStateToProps,
-    // mapDispatchToProps
+    mapDispatchToProps
 )(ContactDetails);

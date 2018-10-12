@@ -15,6 +15,10 @@ const dialog = (state = stateDefaults, action) => {
 
         case 'HIDE_CREATE_DIALOG':
             return visibilityUpdate;
+
+        case 'SHOW_EDIT_DIALOG':
+            return visibilityUpdate;
+
         default:
             return state
     }
