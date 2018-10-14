@@ -5,16 +5,19 @@ import { hideCreateDialog } from './actions';
 
 class Dialog extends Component {
 
-    getContactDetail(prop) {
-        const index = this.props.selected;
-        const contact = this.props.contacts[index];
-        if (!contact || this.props.type === 'create') {
-            return '';
-        }
-        return contact[prop];
+    getContactDetail() {
+        const id = this.props.selected;
+        const contact = this.props.contacts.reduce((acc, contact) => {
+            if (contact.id === id) {
+                acc = contact;
+            }
+            return acc;
+        }, false);
+        return this.props.type === 'create' ? false : contact;
     }
 
     render() {
+        const contact = this.getContactDetail();
         return (
             <section className={`overlay ${this.props.type} ${this.props.visibility}`}>
                 <article>
@@ -23,13 +26,13 @@ class Dialog extends Component {
                     <span className="close" onClick={this.props.hide}>×</span>
                     <form>
                         <label htmlFor="">Name</label>
-                        <input type="text" defaultValue={this.getContactDetail('first_name')} />
+                        <input type="text" defaultValue={contact.first_name} />
 
                         <label htmlFor="">Email</label>
-                        <input type="text" defaultValue={this.getContactDetail('email')} />
+                        <input type="text" defaultValue={contact.email} />
 
                         <label htmlFor="">Mobile phone</label>
-                        <input type="text" defaultValue={this.getContactDetail('phone_number')} />
+                        <input type="text" defaultValue={contact.phone_number} />
                         <button type="submit">Save contact</button>
                     </form>
                 </article>
