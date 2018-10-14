@@ -21,10 +21,20 @@ class ContactList extends Component {
         });
     }
 
+    sortResults(contacts) {
+        const algo = (A, B) => {
+            if (A.first_name < B.first_name) return -1;
+            if (A.first_name > B.first_name) return 1;
+            return 0;
+        }
+        return contacts.sort(algo);
+    }
+
     render() {
+        const contacts = this.props.contacts;
         return (
             <ul>
-                {this.filterResults(this.props.contacts, this.props.search_term).map((contact, key) =>
+                {this.filterResults(this.sortResults(contacts), this.props.search_term).map((contact, key) =>
                     <li key={key} onClick={this.props.selectContact.bind(this, contact.id)} className={this.isActive(contact.id)}>
                         {contact.first_name} {contact.last_name}
                     </li>
