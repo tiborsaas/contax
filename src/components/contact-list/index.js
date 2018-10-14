@@ -17,7 +17,7 @@ class ContactList extends Component {
     filterResults(contacts, search_term) {
         return contacts.filter(contact => {
             const fullname = (contact.first_name + ' ' + contact.last_name).toLocaleLowerCase();
-            return fullname.indexOf(search_term.toLocaleLowerCase()) !== -1
+            return (fullname.indexOf(search_term.toLocaleLowerCase()) !== -1 || contact.phone_number.indexOf(search_term) !== -1);
         });
     }
 
