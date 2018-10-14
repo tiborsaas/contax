@@ -259,3 +259,58 @@ section.overlay article label {
 section.overlay article button {
     float: right;
 }
+
+
+/**
+ * Responsive styles
+ */
+@media (max-width: 740px) {
+    main article {
+        flex: 1 1 50%;
+    }
+
+    main aside {
+        flex: 1 1 50%;
+    }
+}
+
+@media (max-width: 590px) {
+    main {
+        display: block;
+        height: calc( 100vh - 102px );
+    }
+
+    main article {
+        height: 85vh;
+    }
+
+    main .contact-details {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 102px;
+        z-index: 2;
+        background: #fff;
+        transform: translateX(-100%);
+        transition: transform .5s ease;
+    }
+
+    main .contact-details.show {
+        transform: translateX(0%);
+    }
+
+    main article ul {
+        padding-right: 1rem;
+    }
+
+    main article {
+        padding-right: 1rem;
+    }
+
+    main article ul li.active {
+        background-color: #7641AD;
+        color: #fff;
+        border-radius: 6px;
+    }
+}
