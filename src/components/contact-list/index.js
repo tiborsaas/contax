@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchContacts, selectContact } from './actions';
+import { selectContact } from './actions';
+import { fetchContacts } from '../../redux/contact-actions';
 
 class ContactList extends Component {
     constructor(props) {
