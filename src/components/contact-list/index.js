@@ -9,8 +9,8 @@ class ContactList extends Component {
         this.props.fetchContacts();
     }
 
-    isActive(key) {
-        return key === this.props.selected ? 'active' : '';
+    isActive(id) {
+        return id === this.props.selected ? 'active' : '';
     }
 
     filterResults(contacts, search_term) {
@@ -24,7 +24,7 @@ class ContactList extends Component {
         return (
             <ul>
                 {this.filterResults(this.props.contacts, this.props.search_term).map((contact, key) =>
-                    <li key={key} onClick={this.props.selectContact.bind(this, key)} className={this.isActive(key)}>
+                    <li key={key} onClick={this.props.selectContact.bind(this, contact.id)} className={this.isActive(contact.id)}>
                         {contact.first_name} {contact.last_name}
                     </li>
                 )}

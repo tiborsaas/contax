@@ -18,7 +18,9 @@
 }
 
 body {
-    background: #F4F2F5;
+	/* Generated with http://gradient.quasi.ink */
+	background-size: cover;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAADCAYAAABfwxXFAAAAYklEQVQYVwFXAKj/Aa+Tyv8dHx0A2/nxAMDszACjAvIAUkI/AAju8gABgkuo/yg3FQA+SjYAmtfFAH/SxgAICQgABQABAAGVkMf/TVEqAPT18QACFBMAmdLGAKu7vAAB7wgA+eohCrvalnEAAAAASUVORK5CYII=");
 }
 
 a {

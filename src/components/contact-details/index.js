@@ -7,12 +7,15 @@ import { search } from '../search/actions';
 class ContactDetails extends Component {
 
     getContactDetail(prop) {
-        const index = this.props.selected;
-        const contact = this.props.contacts[index];
-        if (!contact) {
-            return '';
-        }
-        return contact[prop];
+        const id = this.props.selected;
+        const contact = this.props.contacts.reduce((acc, contact) => {
+            if(contact.id === id) {
+                acc = contact;
+            }
+            return acc;
+        }, {});
+
+        return contact[prop] ? contact[prop] : '';
     }
 
     render() {
