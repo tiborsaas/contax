@@ -19,6 +19,13 @@ class ContactDetails extends Component {
 
     render() {
         const contact = this.getContactDetail();
+        if(!contact) {
+            return (
+                <aside className="contact-details">
+                    <h1>Please select a contact</h1>
+                </aside>
+            );
+        }
         return (
             <aside className="contact-details">
                 <h1>{`${contact.first_name} ${contact.last_name}`}</h1>
