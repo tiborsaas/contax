@@ -7,6 +7,7 @@ A take home assignment for managing contacts.
 The project can simply be run with the following NPM script:
 
 ```
+npm install
 npm start
 ```
 
