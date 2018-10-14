@@ -23,8 +23,8 @@ class ContactList extends Component {
 
     sortResults(contacts) {
         const algo = (A, B) => {
-            if (A.first_name < B.first_name) return -1;
-            if (A.first_name > B.first_name) return 1;
+            if (A.first_name + A.last_name < B.first_name + B.last_name) return -1;
+            if (A.first_name + A.last_name > B.first_name + B.last_name) return 1;
             return 0;
         }
         return contacts.sort(algo);
