@@ -4,10 +4,13 @@ A take home assignment for managing contacts.
 
 ## Running it locally
 
-The project can simply be run with the following NPM script:
-
+Install dependencies:
 ```
 npm install
+```
+Then simply start the project:
+
+```
 npm start
 ```
 
@@ -18,7 +21,7 @@ It will launch the react app in the browser and a fake server loading contents f
 Components are tested, run them with:
 
 ```
-npm start
+npm test
 ```
 
 ## Tech stuff
