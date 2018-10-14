@@ -26,3 +26,9 @@ npm start
 - No CSS framework is used
 - React / Redux based
 - Test framework: Jest / Enzyme
+
+## Design
+
+After creating wireframes for the app on pen and paper, I looked at some projects designers came up with. Take a look at them in the `design-inspiration` folder.
+
+![](./assets/app.png)
