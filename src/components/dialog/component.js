@@ -16,18 +16,21 @@ export default class Dialog extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(e.target);
-        const contact = {
+        const contact = this.getContactDetail();
+
+        const payload = {
             first_name: data.get('first_name'),
             last_name: data.get('last_name'),
             email: data.get('email'),
-            phone_number: data.get('phone_number')
+            phone_number: data.get('phone_number'),
+            date_created: contact.date_created
         };
 
         if(this.props.type === 'create') {
-            contact.date_created = new Date().toISOString();
-            this.props.createContact(contact);
+            payload.date_created = new Date().toISOString();
+            this.props.createContact(payload);
         } else {
-            this.props.updateContact(this.props.selected, contact);
+            this.props.updateContact(this.props.selected, payload);
         }
         e.target.reset();
     }
