@@ -1,4 +1,6 @@
 
+import { hideCreateDialog } from '../components/dialog/actions';
+
 const completeAction = (type, payload) => ({
     type,
     payload
@@ -6,29 +8,41 @@ const completeAction = (type, payload) => ({
 
 
 const config = {
+    method: 'GET',
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-    }
+    },
+    body: null
 };
 
 
-export function updateContact(contact) {
+export function updateContact(id, contact) {
     config.method = 'PUT';
+    config.body = JSON.stringify(contact);
+
     return dispatch => {
-        return fetch('http://localhost:9000/contacts', config)
+        return fetch(`http://localhost:9000/contacts/${id}`, config)
             .then(response => response.json())
-            .then(json => dispatch(completeAction('CONTACT_UPDATED', json)))
+            .then(json => {
+                dispatch(fetchContacts());
+                dispatch(hideCreateDialog());
+            });
     }
 }
 
 
 export function createContact(contact) {
     config.method = 'POST';
+    config.body = JSON.stringify(contact);
+
     return dispatch => {
         return fetch('http://localhost:9000/contacts', config)
             .then(response => response.json())
-            .then(json => dispatch(completeAction('CONTACT_CREATED', json)))
+            .then(json => {
+                dispatch(fetchContacts());
+                dispatch(hideCreateDialog());
+            });
     }
 }
 
