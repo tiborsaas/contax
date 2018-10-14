@@ -6,25 +6,25 @@ import { search } from '../search/actions';
 
 class ContactDetails extends Component {
 
-    getContactDetail(prop) {
+    getContactDetail() {
         const id = this.props.selected;
         const contact = this.props.contacts.reduce((acc, contact) => {
             if(contact.id === id) {
                 acc = contact;
             }
             return acc;
-        }, {});
-
-        return contact[prop] ? contact[prop] : '';
+        }, false);
+        return contact;
     }
 
     render() {
+        const contact = this.getContactDetail();
         return (
             <aside className="contact-details">
-                <h1>{`${this.getContactDetail('first_name')} ${this.getContactDetail('last_name')}`}</h1>
-                <p><span>Email:</span><a href={'mailto:' + this.getContactDetail('email')}>{this.getContactDetail('email')}</a></p>
-                <p><span>Mobile:</span><a href={'tel:' + this.getContactDetail('phone_number')}>{this.getContactDetail('phone_number')}</a></p>
-                <p><span>Date created:</span>{this.getContactDetail('date_created')}</p>
+                <h1>{`${contact.first_name} ${contact.last_name}`}</h1>
+                <p><span>Email:</span><a href={'mailto:' + contact.email}>{contact.email}</a></p>
+                <p><span>Mobile:</span><a href={'tel:' + contact.phone_number}>{contact.phone_number}</a></p>
+                <p><span>Date created:</span>{contact.date_created}</p>
                 <a href="/" className="danger delete-contact">remove contact</a>
                 <button className="edit-contact" onClick={this.props.showEditDialog}>Edit</button>
             </aside>
