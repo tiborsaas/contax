@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { showEditDialog } from './actions';
+import { showEditDialog, hideDetailsViewOnMobile } from './actions';
 import { deleteContact } from '../../redux/contact-actions';
 import { search } from '../search/actions';
 
@@ -53,13 +53,14 @@ class ContactDetails extends Component {
             );
         }
         return (
-            <aside className="contact-details">
+            <aside className="contact-details show">
                 <h1>{`${contact.first_name} ${contact.last_name}`}</h1>
                 <p><span>Email:</span><a href={'mailto:' + contact.email}>{contact.email}</a></p>
                 <p><span>Mobile:</span><a href={'tel:' + contact.phone_number}>{contact.phone_number}</a></p>
                 <p><span>Date created:</span>{this.formatDate(date)}</p>
                 <a href="/" className="danger delete-contact" onClick={this.removeContact.bind(this)}>remove contact</a>
                 <button className="edit-contact" onClick={this.props.showEditDialog}>Edit</button>
+                <span className="close" onClick={this.props.hideDetailsViewOnMobile}>×</span>
             </aside>
         );
     }
@@ -74,7 +75,8 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators({
         showEditDialog,
         search,
-        deleteContact
+        deleteContact,
+        hideDetailsViewOnMobile
     }, dispatch)
 };
 

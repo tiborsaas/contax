@@ -23,6 +23,13 @@ const contactList = (state = stateDefaults, action) => {
                 ...state,
                 search_term: action.payload
             };
+
+        case 'HIDE_CONTACT_DETAILS':
+            return {
+                ...state,
+                selected: action.selected
+            };
+
         default:
             return state;
     }

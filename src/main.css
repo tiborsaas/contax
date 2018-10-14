@@ -130,6 +130,20 @@ main .contact-details {
     position: relative;
 }
 
+main .contact-details .close {
+    padding: .25rem .7rem;
+    right: 1rem;
+    top: 1rem;
+    position: absolute;
+    background: #efefef;
+    border-radius: 50%;
+    color: #A8A7A7;
+    font-size: 1.5rem;
+    font-weight: 300;
+    z-index: 2;
+    cursor: pointer;
+}
+
 main .contact-details h1 {
     border-bottom: 1px solid #E5E9F2;
     padding: 1rem 0;
